@@ -10,11 +10,11 @@ export default new Router({
     routes: [
         {
             path: '/',
-            component: Language
+            component: App
         },
         {
-            path: '/foo',
-            component: App
+            path: '/language/:lang_id',
+            component: Language
         }
         // {
         //     path: '/language/:lang_id',

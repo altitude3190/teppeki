@@ -20,7 +20,7 @@ Vue.config.productionTip = false;
 
 const app = new Vue({
   router,
-  render: h => h(Language)
+  render: h => h(App)
 }).$mount('#app');
 
 // new Vue({
