@@ -3,7 +3,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Language from '@/components/Language';
 import App from './App.vue';
-
+import Words from './components/Words';
 Vue.use(Router);
 
 export default new Router({
@@ -14,7 +14,13 @@ export default new Router({
         },
         {
             path: '/language/:langId',
-            component: Language
+            component: Language,
+            children: [
+                {
+                    path: 'category/:category_id/words',
+                    component: Words
+                }
+            ]
         }
         // {
         //     path: '/language/:lang_id',

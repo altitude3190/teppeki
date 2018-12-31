@@ -2,21 +2,21 @@
 <template>
   <div id="app">
     <router-link to="/foo">Home</router-link>
-    <p>home page</p>
+    <p>home pagefffffffff</p>
     <!--<img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>-->
 
     <ul id="example-1">
-  <li v-for="category in filteredCategories">
+  <li v-for="category in words">
 
-    <router-link v-bind:to="'/language/' + langId + '/category/' + category.id + '/words'">
-      {{ category.name }}
-    </router-link>
+    <!--<router-link v-bind:to="'/language/' + langId + '/category/' + category.id">-->
+      {{ category.word }}
+    <!--</router-link>-->
   </li>
 </ul>
 
 
-    <router-view></router-view>
+    <!--<router-view></router-view>-->
 
   </div>
 </template>
@@ -28,65 +28,13 @@
 <script>
 /* eslint-disable */
 // import HelloWorld from './components/HelloWorld.vue';
-import firebase from "firebase";
-import { firestore } from "firebase";
+import words from "../data/words";
+
 export default {
   name: 'app',
   data() {
     return {
-      categories: [
-        {
-          id: 101,
-          langId: 1,
-          name: "TOEIC1"
-        },
-        {
-          id: 102,
-          langId: 1,
-          name: "TOEIC2"
-        },
-        {
-          id: 103,
-          langId: 1,
-          name: "TOEIC2"
-        },
-        {
-          id: 104,
-          langId: 1,
-          name: "TOEIC3"
-        },
-        {
-          id: 201,
-          langId: 2,
-          name: "HSK1級"
-        },
-        {
-          id: 202,
-          langId: 2,
-          name: "HSK2級"
-        },
-        {
-          id: 203,
-          langId: 2,
-          name: "HSK3級"
-        },
-        {
-          id: 204,
-          langId: 2,
-          name: "HSK4級"
-        },
-        {
-          id: 205,
-          langId: 2,
-          name: "HSK5級"
-        },
-        {
-          id: 206,
-          langId: 2,
-          name: "HSK6級"
-        }
-      ],
-      filteredCategories: []
+      words
     }
   },
   computed: {
@@ -100,7 +48,7 @@ export default {
   },
   created() {
     // console.log(categories)
-    this.filteredCategories = this.categories.filter(category => category.langId == this.langId)
+    // this.filteredCategories = this.categories.filter(category => category.langId == this.langId)
   }
   /*created() {
     const config = {
