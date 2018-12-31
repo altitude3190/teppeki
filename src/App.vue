@@ -1,3 +1,4 @@
+
 <template>
   <div id="app">
   <div class="jumbotron jumbotron-fluid">
@@ -13,14 +14,14 @@
         <router-link v-bind:to="'/language/' + language.id">{{ language.name }}</router-link>
       </li>
     </ul>
-  </a>
+
   <router-view></router-view>
   </div>
 </template>
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue';
-
+/* eslint-disable */
 export default {
   name: 'app',
   components: {

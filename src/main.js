@@ -21,6 +21,16 @@ Vue.config.productionTip = false;
 const app = new Vue({
   router,
   render: h => h(App)
+  // computed: {
+  //   ViewComponent () {
+  //     debugger;
+  //     return routes[this.currentRoute] || NotFound
+  //   }
+  // },
+  // render(h) {
+  //   debugger
+  //   h(this.ViewComponent)
+  // }
 }).$mount('#app');
 
 // new Vue({

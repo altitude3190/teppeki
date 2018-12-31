@@ -13,7 +13,7 @@ export default new Router({
             component: App
         },
         {
-            path: '/language/:lang_id',
+            path: '/language/:langId',
             component: Language
         }
         // {
