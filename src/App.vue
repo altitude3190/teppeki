@@ -5,8 +5,8 @@
     <li class="list-group-item p-3">
     <div class="d-flex flex-row bd-highlight">
       <div class="bd-highlight flex-grow-1">
-        <p class="m-0 p-0">Flex item</p>
-        <p class="m-0 p-0">1hoge</p>
+        <p class="m-0 p-0 text-dark"><span>Flex item</span><span>&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;ai</span></p>
+        <p class="m-0 p-0 text-secondary">1hoge</span></p>
       </div>
       <div class="bd-highlight align-self-center"><i style="font-size:1.3em" class="fas fa-check-square"></i></div>
     </div>
