@@ -1,37 +1,23 @@
 
 <template>
   <div id="app">
-    <router-link to="/foo">Home</router-link>
-    <p>home pagefffffffff</p>
-    <!--<img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>-->
-
-    <ul id="example-1">
-  <li v-for="category in words">
-
-    <!--<router-link v-bind:to="'/language/' + langId + '/category/' + category.id">-->
-      {{ category.word }}
-    <!--</router-link>-->
-  </li>
-</ul>
-
-
-    <!--<router-view></router-view>-->
-
+    <ul class="list-group">
+      <Word v-for="word in words" v-bind:word="word.word" v-bind:ruby="word.ruby" v-bind:meaning="word.meaning" />
+    </ul>
   </div>
 </template>
-<!--
-<script src="https://unpkg.com/vue/dist/vue.js"></script>
-<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
--->
 
 <script>
 /* eslint-disable */
 // import HelloWorld from './components/HelloWorld.vue';
 import words from "../data/words";
+import Word from "./Word";
 
 export default {
   name: 'app',
+  components: {
+    Word,
+  },
   data() {
     return {
       words
