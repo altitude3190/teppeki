@@ -62,7 +62,7 @@
     <h1 class="display-4">Flashcards</h1>
     <p class="lead">A simple flashcards app.</p>
   </div>
-</div>
+  </div>
     <!--<HelloWorld msg="Welcome to Your Vue.js App"/>-->
     <h3>languages</h3>
     <ul class="list-group list-group-flush">
@@ -71,7 +71,7 @@
       </li>
     </ul>
 
-  <router-view></router-view>
+  <!--<router-view></router-view>-->
   </div>
 </template>
 

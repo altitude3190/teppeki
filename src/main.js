@@ -20,7 +20,10 @@ Vue.config.productionTip = false;
 
 const app = new Vue({
   router,
-  render: h => h(App)
+  // render: h => h(App),
+  // beforeRouteUpdate(to, from, next) {
+  //   next();
+  // },
   // computed: {
   //   ViewComponent () {
   //     debugger;
