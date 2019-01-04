@@ -4,6 +4,7 @@ import Router from 'vue-router'
 import Language from '@/components/Language';
 import App from './App.vue';
 import Words from './components/Words';
+import UncheckedWords from './components/UncheckedWords';
 Vue.use(Router);
 
 export default new Router({
@@ -13,24 +14,16 @@ export default new Router({
             component: App,
         },
         {
+            path: '/language/:langId/category/:categoryId/words',
+            component: Words
+        },
+        {
+            path: '/language/:langId/uncheckedwords',
+            component: UncheckedWords
+        },
+        {
             path: '/language/:langId',
             component: Language,
-            children: [
-                {
-                    path: 'category/:category_id/words',
-                    component: Words
-                }
-            ]
         }
-        // {
-        //     path: '/language/:lang_id',
-        //     component: './Lauguage',
-        //     children: [
-        //         {
-        //             path: 'category/:category_id/words',
-        //             component: 'Words'
-        //         }
-        //     ]
-        // }
     ]
 });
