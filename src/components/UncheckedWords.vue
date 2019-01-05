@@ -2,7 +2,7 @@
 <template>
   <div id="app">
     <ul class="list-group">
-      <Word v-for="word in words" v-bind:word="word.word" v-bind:ruby="word.ruby" v-bind:meaning="word.meaning" />
+      <Word v-for="word in filterdWords" v-bind:word="word" />
     </ul>
   </div>
 </template>
@@ -12,7 +12,7 @@
 // import HelloWorld from './components/HelloWorld.vue';
 import words from "../data/words";
 import Word from "./Word";
-
+import repos from "../lib/localStrageRepos"
 export default {
   name: 'app',
   components: {
@@ -28,9 +28,10 @@ export default {
       // We will see what `params` is shortly
       return this.$route.params.langId
     },
-    // filterdByLangId() {
-    //   return this.data.categories.filters(category => category.id == langId())
-    // }
+    filterdWords() {
+      const checkedWordsIdMap = repos.getUncheckedWords(this.langId)
+      return this.words.filter(word => word.langId == this.langId && checkedWordsIdMap[word.id])
+    }
   },
   created() {
     // console.log(categories)

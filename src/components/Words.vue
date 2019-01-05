@@ -2,7 +2,7 @@
 <template>
   <div id="app">
     <ul class="list-group">
-      <Word v-for="word in filterdWords" v-bind:word="word.word" v-bind:ruby="word.ruby" v-bind:meaning="word.meaning" />
+      <Word v-for="word in filterdWords" v-bind:word="word" />
     </ul>
   </div>
 </template>
