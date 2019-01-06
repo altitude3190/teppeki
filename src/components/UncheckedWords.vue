@@ -1,6 +1,17 @@
 
 <template>
   <div id="app">
+    <nav class="navbar navbar-light bg-light">
+    <router-link class="navbar-brand m-0" to="/">
+        <button type="button" class="btn btn-outline-secondary"><i class="fas fa-home"></i></button>
+    </router-link>
+    <span class="navbar-text">
+      {{ LANGUAGE[langId].name }} 登録単語
+    </span>
+    <router-link class="navbar-brand m-0" v-bind:to="'/language/' + langId">
+        <button type="button" class="btn btn-outline-secondary">{{ LANGUAGE[langId].name }} トップ</button>
+    </router-link>
+    </nav>
     <ul class="list-group">
       <Word v-for="word in filterdWords" v-bind:word="word" />
     </ul>
@@ -13,6 +24,7 @@
 import words from "../data/words";
 import Word from "./Word";
 import repos from "../lib/localStrageRepos"
+import CONST from "../Const"
 export default {
   name: 'app',
   components: {
@@ -20,7 +32,8 @@ export default {
   },
   data() {
     return {
-      words
+      words,
+      LANGUAGE: CONST.LANGUAGE
     }
   },
   computed: {

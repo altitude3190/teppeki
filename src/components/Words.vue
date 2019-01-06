@@ -1,6 +1,17 @@
 
 <template>
   <div id="app">
+    <nav class="navbar navbar-light bg-light">
+    <router-link class="navbar-brand m-0" to="/">
+        <button type="button" class="btn btn-outline-secondary"><i class="fas fa-home"></i></button>
+    </router-link>
+    <span class="navbar-text">
+      {{ CATEGORY[categoryId].name }}
+    </span>
+    <router-link class="navbar-brand m-0" v-bind:to="'/language/' + langId + '/uncheckedwords'">
+        <button type="button" class="btn btn-outline-secondary">登録単語</button>
+    </router-link>
+    </nav>
     <ul class="list-group">
       <Word v-for="word in filterdWords" v-bind:word="word" />
     </ul>
@@ -12,6 +23,7 @@
 // import HelloWorld from './components/HelloWorld.vue';
 import words from "../data/words";
 import Word from "./Word";
+import CONST  from "../Const"
 
 export default {
   name: 'app',
@@ -20,7 +32,8 @@ export default {
   },
   data() {
     return {
-      words
+      words,
+      CATEGORY: CONST.CATEGORY
     }
   },
   computed: {
