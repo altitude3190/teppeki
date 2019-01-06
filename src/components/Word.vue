@@ -1,40 +1,36 @@
 <template>
-  <li class="list-group-item p-3">
-    <div class="d-flex flex-row bd-highlight">
-      <div class="bd-highlight flex-grow-1">
-        <p class="m-0 p-0 text-dark"><span>{{ word.word }}</span><span>&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;{{ word.ruby }}</span></p>
-        <p class="m-0 p-0 text-secondary"><span>{{ word.meaning }}</span></p>
-      </div>
-      <div class="bd-highlight align-self-center" v-on:click="toggleCheck">
-        <i style="font-size:1.3em" v-bind:class="checkboxClass"></i>
-      </div>
+  <li class="table-view-cell">
+    <div class="media-body">
+      <span>{{ word.word }}</span><span>&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;{{ word.ruby }}</span>
+      <p><span>{{ word.meaning }}</span></p>
     </div>
+    <button v-bind:class="'btn ' + pressStateClass" v-on:click="toggleCheck"><span class="icon icon-close"></span></button>
   </li>
 </template>
 
 <script>
 import repos from '../lib/localStrageRepos'
-
+// class="btn btn-negative"
 
 export default {
   name: 'Word',
   props: ['word'],
   data() {
       return {
-          checkboxClass: 'far fa-square'
+          pressStateClass: ''
       }
   },
   created() {
-    //   this.checkboxClass = 'fas fa-plus-square'
-      this.checkboxClass = this.isSaved() ? 'fas fa-plus-square' : 'far fa-square'
+    //   this.pressStateClass = 'btn-negative'
+      this.pressStateClass = this.isSaved() ? 'btn-negative' : ''
   },
   methods: {
       toggleCheck(e) {
-          if (this.checkboxClass === 'far fa-square') {
-              this.checkboxClass = 'fas fa-plus-square'
+          if (this.pressStateClass === '') {
+              this.pressStateClass = 'btn-negative'
                 repos.addUncheckedWord(this.word.langId, this.word.id)
           } else {
-              this.checkboxClass = 'far fa-square'
+              this.pressStateClass = ''
               repos.deleteUncheckedWord(this.word.langId, this.word.id)
           }
       },

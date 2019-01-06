@@ -1,7 +1,7 @@
 
 <template>
   <div id="app">
-    <nav class="navbar navbar-light bg-light">
+    <!--<nav class="navbar navbar-light bg-light">
     <router-link class="navbar-brand m-0" to="/">
         <button type="button" class="btn btn-outline-secondary"><i class="fas fa-home"></i></button>
     </router-link>
@@ -11,10 +11,25 @@
     <router-link class="navbar-brand m-0" v-bind:to="'/language/' + langId + '/uncheckedwords'">
         <button type="button" class="btn btn-outline-secondary">登録単語</button>
     </router-link>
-    </nav>
-    <ul class="list-group">
+    </nav>-->
+    <header class="bar bar-nav">
+      <router-link to="/">
+        <button class="btn pull-left">
+          HOME
+        </button>
+      </router-link>
+      <router-link v-bind:to="'/language/' + langId + '/uncheckedwords'">
+        <button class="btn pull-right">
+          登録単語
+        </button>
+      </router-link>
+      <h1 class="title">{{ CATEGORY[categoryId].name }}</h1>
+    </header>
+    <div class="content">
+    <ul class="table-view">
       <Word v-for="word in filterdWords" v-bind:word="word" />
     </ul>
+    </div>
   </div>
 </template>
 

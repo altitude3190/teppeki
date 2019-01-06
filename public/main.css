@@ -1,0 +1,26 @@
+/* .bar-vav~.content {
+    padding-top: 28px;
+} */
+
+.content {
+    position: relative;
+    margin-top: 0px;
+}
+
+.title {
+    color: #fff
+}
+
+.bar {
+    background-color: #209BEE;
+}
+
+.content>.table-view:first-child {
+    border-top: none;
+    margin-top: 0px;
+}
+
+body {
+    position: relative;
+    color: #666;
+}
