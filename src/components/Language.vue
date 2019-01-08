@@ -27,8 +27,6 @@
 
 <script>
 /* eslint-disable */
-import firebase from "firebase";
-import { firestore } from "firebase";
 import CONST from "../Const"
 
 export default {
