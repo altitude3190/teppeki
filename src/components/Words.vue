@@ -1,17 +1,5 @@
-
 <template>
   <div id="app">
-    <!--<nav class="navbar navbar-light bg-light">
-    <router-link class="navbar-brand m-0" to="/">
-        <button type="button" class="btn btn-outline-secondary"><i class="fas fa-home"></i></button>
-    </router-link>
-    <span class="navbar-text">
-      {{ CATEGORY[categoryId].name }}
-    </span>
-    <router-link class="navbar-brand m-0" v-bind:to="'/language/' + langId + '/uncheckedwords'">
-        <button type="button" class="btn btn-outline-secondary">登録単語</button>
-    </router-link>
-    </nav>-->
     <header class="bar bar-nav">
       <router-link to="/">
         <button class="btn pull-left">
