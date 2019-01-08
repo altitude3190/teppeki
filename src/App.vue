@@ -7,8 +7,10 @@
     <div class="content">
       <ul class="table-view">
         <li class="table-view-divider">Languages</li>
-        <li class="table-view-cell" v-for="language in languages">
-          <router-link class="navigate-right" v-bind:to="'/language/' + language.id">{{ language.name }}</router-link>
+        <li class="table-view-cell" v-for="language in languages" :key="language.id">
+          <router-link class="navigate-right" v-bind:to="'/language/' + language.id">
+            {{ language.name }}
+          </router-link>
         </li>
       </ul>
     </div>
@@ -16,39 +18,14 @@
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue';
-/* eslint-disable */
+import CONST from '@/Const.vue';
+
 export default {
-  name: 'app',
-  components: {
-    // HelloWorld,
-  },
-  data() {
-    return {
-      languages: [
-        {
-          id: 1,
-          name: "英語"
+    name: 'app',
+    computed: {
+        languages() {
+            return Object.values(CONST.LANGUAGE).sort((a, b) => a.id - b.id);
         },
-        {
-          id: 2,
-          name: "中国語"
-        }
-      ]
-    };
-  }
+    },
 };
 </script>
-
-<style>
-/*
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-*/
-</style>
