@@ -1,8 +1,6 @@
 /* eslint-disable */
 import Vue from 'vue';
-import App from './App.vue';
 import router from './routes.js'
-import Language from './components/Language.vue'
 Vue.config.productionTip = false;
 
 // new Vue({
