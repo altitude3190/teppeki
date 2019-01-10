@@ -18,13 +18,13 @@
 </template>
 
 <script>
-import CONST from '@/Const.vue';
+import { LANGUAGE_MAP } from '@/Const.js';
 
 export default {
     name: 'app',
     computed: {
         languages() {
-            return Object.values(CONST.LANGUAGE).sort((a, b) => a.id - b.id);
+            return Object.values(LANGUAGE_MAP).sort((a, b) => a.id - b.id);
         },
     },
 };
