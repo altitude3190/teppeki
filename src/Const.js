@@ -55,8 +55,8 @@ const CONST = {
             langId: 2,
             name: 'HSK5級',
         },
-        206: {
-            id: 206,
+        200: {
+            id: 200,
             langId: 2,
             name: 'HSK6級',
         },
