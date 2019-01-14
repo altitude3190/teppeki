@@ -15,7 +15,9 @@
     </header>
     <div class="content">
     <ul class="table-view">
-      <Word v-for="word in dispWords" v-bind:word="word" :key="word.id" />
+      <Word v-for="(word, index) in dispWords"
+        v-bind:word="word" v-bind:orderNum="index + 1" v-bind:totalNum="dispWords.length"
+        :key="word.id" />
     </ul>
     </div>
   </div>

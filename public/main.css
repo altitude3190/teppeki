@@ -24,6 +24,12 @@ p {
     font-size: 16px
 }
 
+p.word-number {
+    font-size: 10px;
+    line-height: initial;
+    font-color: #999;
+}
+
 body {
     position: relative;
     color: #666;

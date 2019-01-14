@@ -1,6 +1,7 @@
 <template>
   <li class="table-view-cell">
     <div class="media-body" v-on:click="toggleMeaning">
+      <p class="word-number">{{ orderNum }}/{{ totalNum }}</p>
       <p>
         <span>{{ word.word }}</span>
         <span v-if="word.ruby">&nbsp;&nbsp;[ {{ word.ruby }} ]</span>
@@ -23,7 +24,7 @@ const BTN_PRESSED_CLASS_NAME = 'btn-negative';
 
 export default {
     name: 'Word',
-    props: ['word'],
+    props: ['word', 'orderNum', 'totalNum'],
     data() {
         return {
             pressStateClass: '',
