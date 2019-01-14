@@ -40,4 +40,12 @@ export default new Router({
             props: route => ({ langId: Number(route.params.langId) }),
         },
     ],
+    // always scroll top when routing
+    // if it has a savedPosition, scroll there
+    scrollBehavior(_to, _from, savedPosition) {
+        if (savedPosition) {
+            return savedPosition;
+        }
+        return { x: 0, y: 0 };
+    },
 });
