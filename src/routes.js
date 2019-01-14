@@ -14,13 +14,14 @@ export default new Router({
             component: App,
         },
         {
-            path: '/language/:langId/category/:categoryId/words',
+            path: '/language/:langId/category/:categoryId/posgroup/:posGroupId/words',
             component: Words,
             props: route => (
                 {
                     // cast string to number
                     langId: Number(route.params.langId),
                     categoryId: Number(route.params.categoryId),
+                    posGroupId: Number(route.params.posGroupId),
                 }
             ),
         },

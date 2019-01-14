@@ -24,18 +24,21 @@
 <script>
 import WORD_DATA from '@/data/Words.js';
 import Word from '@/components/Word.vue';
-import { CATEGORY_MAP } from '@/Const.js';
+import { CATEGORY_MAP, POS_GROUP_MAP } from '@/Const.js';
 
 export default {
     name: 'words',
-    props: ['langId', 'categoryId'],
+    props: ['langId', 'categoryId', 'posGroupId'],
     components: {
         Word,
     },
     computed: {
         dispWords() {
+            const { posIds } = POS_GROUP_MAP[this.posGroupId];
             return WORD_DATA.filter(
-                word => word.langId === this.langId && word.categoryId === this.categoryId,
+                word => word.langId === this.langId
+                    && word.categoryId === this.categoryId
+                    && posIds.includes(word.posId),
             );
         },
         categoryMap() {

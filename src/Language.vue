@@ -15,20 +15,27 @@
     </header>
     <div class="content">
       <ul class="table-view">
-        <li class="table-view-cell" v-for="category in categories" :key="category.id">
-          <router-link
-            class="navigate-right"
-            v-bind:to="'/language/' + langId + '/category/' + category.id + '/words'">
-            {{ category.name }}
-          </router-link>
-        </li>
+        <template v-for="category in categories">
+          <li class="table-view-divider" :key="category.id">{{ category.name }}</li>
+          <!--eslint-disable-next-line vue/valid-v-for-->
+          <li class="table-view-cell" v-for="posGroup in posGroups">
+            <router-link
+              class="navigate-right"
+              v-bind:to="
+                '/language/' + langId + '/category/' + category.id +
+                '/posgroup/' + posGroup.id + '/words'
+              ">
+              {{ category.name }} {{ posGroup.name }}
+            </router-link>
+          </li>
+        </template>
       </ul>
     </div>
   </div>
 </template>
 
 <script>
-import { LANGUAGE_MAP, CATEGORY_MAP } from '@/Const.js';
+import { LANGUAGE_MAP, CATEGORY_MAP, POS_GROUP_MAP } from '@/Const.js';
 
 export default {
     name: 'language',
@@ -41,6 +48,10 @@ export default {
         },
         languageMap() {
             return LANGUAGE_MAP;
+        },
+        posGroups() {
+            return Object.values(POS_GROUP_MAP)
+                .sort((a, b) => a.id - b.id);
         },
     },
 };
