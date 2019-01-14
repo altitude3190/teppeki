@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import repos from '@/lib/localStrageRepos.js';
+import repos from '../lib/localStrageRepos';
 
 const BTN_PRESSED_CLASS_NAME = 'btn-negative';
 

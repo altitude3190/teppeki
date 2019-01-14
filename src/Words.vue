@@ -24,9 +24,9 @@
 </template>
 
 <script>
-import WORD_DATA from '@/data/Words.js';
+import WORD_DATA from './data/Words';
 import Word from '@/components/Word.vue';
-import { CATEGORY_MAP, POS_GROUP_MAP } from '@/Const.js';
+import { CATEGORY_MAP, POS_GROUP_MAP } from './Const';
 
 export default {
     name: 'words',

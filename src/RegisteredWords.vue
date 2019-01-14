@@ -24,10 +24,10 @@
 </template>
 
 <script>
-import WORD_DATA from '@/data/Words.js';
+import WORD_DATA from './data/Words';
 import Word from '@/components/Word.vue';
-import { LANGUAGE_MAP } from '@/Const.js';
-import repos from '@/lib/localStrageRepos.js';
+import { LANGUAGE_MAP } from './Const';
+import repos from './lib/localStrageRepos';
 
 export default {
     name: 'words',

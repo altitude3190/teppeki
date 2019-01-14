@@ -17,7 +17,7 @@
       <ul class="table-view">
         <template v-for="category in categories">
           <li class="table-view-divider" :key="category.id">{{ category.name }}</li>
-          <!--eslint-disable-next-line vue/valid-v-for-->
+          <!--eslint-disable-next-line-->
           <li class="table-view-cell" v-for="posGroup in posGroups">
             <router-link
               class="navigate-right"
@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import { LANGUAGE_MAP, CATEGORY_MAP, POS_GROUP_MAP } from '@/Const.js';
+import { LANGUAGE_MAP, CATEGORY_MAP, POS_GROUP_MAP } from './Const';
 
 export default {
     name: 'language',
