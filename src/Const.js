@@ -124,11 +124,47 @@ const CONST = {
         },
         100: {
             id: 100,
+            name: 'イディオム',
+        },
+        101: {
+            id: 101,
+            name: '四字熟語',
+        },
+    },
+    POS_GROUP_MAP: {
+        1: {
+            id: 1,
+            name: '動詞',
+            posIds: [1],
+        },
+        2: {
+            id: 2,
+            name: '形容詞',
+            posIds: [2],
+        },
+        3: {
+            id: 3,
+            name: '名詞',
+            posIds: [3, 4, 5],
+        },
+        4: {
+            id: 4,
+            name: '副詞',
+            posIds: [6],
+        },
+        5: {
+            id: 5,
             name: '熟語',
+            posIds: [100, 101],
+        },
+        6: {
+            id: 6,
+            name: 'その他',
+            posIds: [7, 8, 9, 10, 11, 12, 13, 14, 15],
         },
     },
 };
 
 export const { LANGUAGE_MAP } = CONST;
 export const { CATEGORY_MAP } = CONST;
-export const { POS_MAP } = CONST;
+export const { POS_GROUP_MAP } = CONST;
