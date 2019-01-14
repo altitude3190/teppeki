@@ -13,7 +13,6 @@ export default {
         localStorage.setItem(key, value);
     },
 
-
     getUncheckedWords(langId) {
         const value = localStorage.getItem(makeKey(langId)) || '{}';
         return JSON.parse(value);

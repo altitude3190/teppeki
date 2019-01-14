@@ -1,15 +1,26 @@
 import csv
 import json
+import glob
 
-csvfile = open('../data/words.csv', 'r')
-vuefile = open('words.vue', 'w')
+esfile = open('../src/data/Words.js', 'w')
+esfile.write('/* eslint-disable */\n')
+esfile.write('export default [')
 
-fields = ("langId", "categoryId", "word", "meaning", "ruby", "pos")
-reader = csv.DictReader(csvfile, fields)
+for path in glob.glob("../data/*"):
+  csvfile = open(path, 'r')
 
-vuefile.write('[')
-reader.next() # skip the header
-for row in reader:
-  json.dump(row, vuefile, ensure_ascii=False)
-  vuefile.write('\n')
-vuefile.write(']')
+  fields = ("id", "langId", "categoryId", "word", "meaning", "ruby", "posId")
+  reader = csv.DictReader(csvfile, fields, "rest")
+
+  reader.next() # skip the header
+  for row in reader:
+    if "rest" in row:
+      del row["rest"]
+    row["id"] = int(row["id"])
+    row["langId"] = int(row["langId"])
+    row["categoryId"] = int(row["categoryId"])
+    row["posId"] = int(row["posId"])
+    json.dump(row, esfile, ensure_ascii=False)
+    esfile.write(',')
+
+esfile.write(']')

@@ -21,7 +21,7 @@
 <script>
 /* eslint-disable */
 // import HelloWorld from './components/HelloWorld.vue';
-import words from "../data/words";
+import words from "../data/Words";
 import Word from "./Word";
 import repos from "../lib/localStrageRepos"
 import CONST from "../Const"

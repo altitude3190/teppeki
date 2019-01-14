@@ -3,10 +3,10 @@
     <div class="media-body" v-on:click="toggleMeaning">
       <p>
         <span>{{ word.word }}</span>
-        <span v-if="word.ruby">&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;{{ word.ruby }}</span>
+        <span v-if="word.ruby">&nbsp;&nbsp;[ {{ word.ruby }} ]</span>
       </p>
       <p>
-        <small v-if="shouldShowMeaning">{{ word.meaning }}</small>
+        <span v-if="shouldShowMeaning">{{ word.meaning }}</span>
         <br>
       </p>
     </div>

@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import WORD_DATA from '@/data/words.vue';
+import WORD_DATA from '@/data/Words.js';
 import Word from '@/components/Word.vue';
 import { CATEGORY_MAP } from '@/Const.js';
 
