@@ -3,7 +3,7 @@ import Router from 'vue-router';
 import Language from '@/Language.vue';
 import App from '@/App.vue';
 import Words from '@/Words.vue';
-import UncheckedWords from './components/UncheckedWords';
+import RegisteredWords from '@/RegisteredWords.vue';
 
 Vue.use(Router);
 
@@ -26,8 +26,13 @@ export default new Router({
             ),
         },
         {
-            path: '/language/:langId/uncheckedwords',
-            component: UncheckedWords,
+            path: '/language/:langId/registered/words',
+            component: RegisteredWords,
+            props: route => (
+                {
+                    langId: Number(route.params.langId),
+                }
+            ),
         },
         {
             path: '/language/:langId',

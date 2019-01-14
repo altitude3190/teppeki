@@ -6,7 +6,7 @@
           HOME
         </button>
       </router-link>
-      <router-link v-bind:to="'/language/' + langId + '/uncheckedwords'">
+      <router-link v-bind:to="'/language/' + langId + '/registered/words'">
         <button class="btn pull-right">
           登録単語
         </button>

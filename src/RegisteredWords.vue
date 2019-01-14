@@ -6,12 +6,12 @@
           HOME
         </button>
       </router-link>
-      <router-link v-bind:to="'/language/' + langId + '/registered/words'">
+      <router-link v-bind:to="'/language/' + langId">
         <button class="btn pull-right">
-          登録単語
+          {{ languageMap[langId].name }}TOP
         </button>
       </router-link>
-      <h1 class="title">{{ categoryMap[categoryId].name }}</h1>
+      <h1 class="title">{{ languageMap[langId].name }} 登録単語</h1>
     </header>
     <div class="content">
     <ul class="table-view">
@@ -26,25 +26,25 @@
 <script>
 import WORD_DATA from '@/data/Words.js';
 import Word from '@/components/Word.vue';
-import { CATEGORY_MAP, POS_GROUP_MAP } from '@/Const.js';
+import { LANGUAGE_MAP } from '@/Const.js';
+import repos from '@/lib/localStrageRepos.js';
 
 export default {
     name: 'words',
-    props: ['langId', 'categoryId', 'posGroupId'],
+    props: ['langId'],
     components: {
         Word,
     },
     computed: {
         dispWords() {
-            const { posIds } = POS_GROUP_MAP[this.posGroupId];
+            const checkedWordsIdMap = repos.getRegisteredWords(this.langId);
             return WORD_DATA.filter(
                 word => word.langId === this.langId
-                    && word.categoryId === this.categoryId
-                    && posIds.includes(word.posId),
+                    && checkedWordsIdMap[word.id],
             );
         },
-        categoryMap() {
-            return CATEGORY_MAP;
+        languageMap() {
+            return LANGUAGE_MAP;
         },
     },
 };

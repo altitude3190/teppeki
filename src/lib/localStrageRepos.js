@@ -13,19 +13,19 @@ export default {
         localStorage.setItem(key, value);
     },
 
-    getUncheckedWords(langId) {
+    getRegisteredWords(langId) {
         const value = localStorage.getItem(makeKey(langId)) || '{}';
         return JSON.parse(value);
     },
 
-    addUncheckedWord(langId, wordId) {
-        const wordIdObjects = this.getUncheckedWords(langId);
+    addRegisteredWord(langId, wordId) {
+        const wordIdObjects = this.getRegisteredWords(langId);
         wordIdObjects[wordId] = true;
         localStorage.setItem(makeKey(langId), JSON.stringify(wordIdObjects));
     },
 
-    deleteUncheckedWord(langId, wordId) {
-        const wordIdObjects = this.getUncheckedWords(langId);
+    deleteRegisteredWord(langId, wordId) {
+        const wordIdObjects = this.getRegisteredWords(langId);
         delete wordIdObjects[wordId];
         localStorage.setItem(makeKey(langId), JSON.stringify(wordIdObjects));
     },

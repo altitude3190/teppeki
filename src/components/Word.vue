@@ -38,14 +38,14 @@ export default {
         toggleCheck() {
             if (this.pressStateClass === '') {
                 this.pressStateClass = BTN_PRESSED_CLASS_NAME;
-                repos.addUncheckedWord(this.word.langId, this.word.id);
+                repos.addRegisteredWord(this.word.langId, this.word.id);
             } else {
                 this.pressStateClass = '';
-                repos.deleteUncheckedWord(this.word.langId, this.word.id);
+                repos.deleteRegisteredWord(this.word.langId, this.word.id);
             }
         },
         isSaved() {
-            return !!repos.getUncheckedWords(this.word.langId)[this.word.id];
+            return !!repos.getRegisteredWords(this.word.langId)[this.word.id];
         },
         toggleMeaning() {
             this.shouldShowMeaning = !this.shouldShowMeaning;
