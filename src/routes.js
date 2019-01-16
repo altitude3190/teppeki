@@ -4,6 +4,7 @@ import Language from '@/Language.vue';
 import App from '@/App.vue';
 import Words from '@/Words.vue';
 import RegisteredWords from '@/RegisteredWords.vue';
+import NotFound from '@/NotFound.vue';
 
 Vue.use(Router);
 
@@ -38,6 +39,10 @@ export default new Router({
             path: '/language/:langId',
             component: Language,
             props: route => ({ langId: Number(route.params.langId) }),
+        },
+        {
+            path: '*',
+            component: NotFound,
         },
     ],
     // always scroll top when routing
